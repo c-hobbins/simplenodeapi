@@ -4,8 +4,7 @@
   "description": "simple express service to dokerize",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified. So it passes!!!!\" && exit 0",
-    "start": "node server.js"
+    "test": "echo \"Error: no test specified. So it passes!!!!\" && exit 0"
   },
   "keywords": [],
   "author": "",
