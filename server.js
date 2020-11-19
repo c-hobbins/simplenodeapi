@@ -7,7 +7,8 @@ const PORT = 8080;
 const HOST = '0.0.0.0';
 const app = express();
 
-//Setup a simple array of objects to seed some list of clients
+//Setup a simple array of objects to seed some list of clients. 
+//To-Do: Move this to an in memory db or a no-sql database
 let clientArray = [ 
       {id: 1, fname: 'Homer', lname: 'Simpson', gender: 'M', dob: '1960-03-23', age: 59},
       {id: 2, fname: 'Marge', lname: 'Simpson', gender: 'F', dob: '1961-12-30', age: 58},
