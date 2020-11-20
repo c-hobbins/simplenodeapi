@@ -3,8 +3,6 @@
 const express = require('express');
 const bp = require('body-parser');
 
-const PORT = 8080;
-const HOST = '0.0.0.0';
 const app = express();
 
 //Setup a simple array of objects to seed some list of clients. 
@@ -38,7 +36,7 @@ var urlParser = bp.urlencoded( { extended: true } );
 ****************************************************************************/
 app.get('/clients', (req, res)=>{
    console.log("Returning list of %d clients...", clientArray.length);
-   res.json(clientArray);
+   res.status(200).json(clientArray);
 });
 
 /***************************************************************************
@@ -91,5 +89,4 @@ app.delete('/clients/:clientId', (req, res) => {
    res.json({responseMsg: "You can delete things!"});
 });
 
-app.listen(PORT, HOST);
-console.log(`Simple Node/Express API service running on => http://${HOST}:${PORT}`);
+module.exports = app;
