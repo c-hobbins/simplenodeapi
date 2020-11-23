@@ -15,9 +15,9 @@ describe("Test Script 1...", function() {
 });
 
 describe("Test Script 2...", function() {
-    it("GET /clients test", async function() {
+    it("GET /v1/clients test", async function() {
         try{
-            const res = await request.get('/clients');
+            const res = await request.get('/v1/clients');
             expect(res.status).to.equal(200);
             expect(res.body.length).to.equal(dummyData.length);
             //console.log ("Returned " + res.body.length + " clients.");
@@ -27,9 +27,9 @@ describe("Test Script 2...", function() {
         }
     });
 
-    it("GET /clients/{id} test", async function() {
+    it("GET /v1/clients/{id} test", async function() {
         try{
-            const res = await request.get('/clients/6');
+            const res = await request.get('/v1/clients/6');
             expect(res.status).to.equal(200);
             expect(res.body.fname).to.equal("Moe");
             //console.log ("Returned '" + res.body.fname + "'!");
@@ -39,9 +39,9 @@ describe("Test Script 2...", function() {
         }
     });
 
-    it("POST /clients test", async function() {
+    it("POST /v1/clients test", async function() {
         try{
-            const res = await request.post('/clients')
+            const res = await request.post('/v1/clients')
             .send({fname: 'Ned', lname: 'Flanders', gender: 'M', dob: '1964-12-25', age: 56})
             .set('Accept', 'application/json');
             
@@ -55,9 +55,9 @@ describe("Test Script 2...", function() {
         }
     });
 
-    it("DELETE /clients/{id} test", async function() {
+    it("DELETE /v1/clients/{id} test", async function() {
         try{
-            const res = await request.delete('/clients/' + clientId)
+            const res = await request.delete('/v1/clients/' + clientId)
             
             expect(res.status).to.equal(204);
             clientId = res.body.id;
