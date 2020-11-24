@@ -31,7 +31,7 @@ describe("Test Script 2...", function() {
         try{
             const res = await request.get('/v1/clients/6');
             expect(res.status).to.equal(200);
-            expect(res.body.fname).to.equal("Moe");
+            expect(res.body.firstName).to.equal("Moe");
             //console.log ("Returned '" + res.body.fname + "'!");
         }catch(err){
             //console.log ("Caught handled error:" + err);
@@ -42,12 +42,11 @@ describe("Test Script 2...", function() {
     it("POST /v1/clients test", async function() {
         try{
             const res = await request.post('/v1/clients')
-            .send({fname: 'Ned', lname: 'Flanders', gender: 'M', dob: '1964-12-25', age: 56})
+            .send({firstName: 'Ned', lastName: 'Flanders', gender: 'M', dateOfBirth: '1964-12-25', email: 'nedly@isotopemail.com'})
             .set('Accept', 'application/json');
             
             expect(res.status).to.equal(201);
             clientId = res.body.id;
-            //expect(res.body.fname).to.equal("Moe");
             //console.log ("Returned new client {Id}='" + res.body.id + "'.");
         }catch(err){
             //console.log ("Caught handled error:" + err);

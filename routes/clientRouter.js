@@ -16,7 +16,10 @@ var urlParser = bp.urlencoded( { extended: true } );
 
 
 clientRouter.use(function logTimestamp( req, res, next) {
-    console.log("System::Time::" + Date.now.toString);
+    let ts = new Date(Date.now()).toISOString()
+    .replace(/T/, ' ')
+    .replace(/\..+/, '') 
+    console.log("System::Time => " + ts +" (GMT)");
     next();
 });
 
