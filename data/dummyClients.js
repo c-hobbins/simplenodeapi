@@ -11,7 +11,8 @@ let clientArray = [
     {id: 10, firstName: 'Krusty', lastName: 'The Clown', gender: 'M', dateOfBirth: '1954-06-06', email: 'krusty@isotopemail.com'},
     {id: 11, firstName: 'Edna', lastName: 'Krabappel', gender: 'F', dateOfBirth: '1965-03-30', email: 'ednak@isotopemail.com'},
     {id: 12, firstName: 'Principal', lastName: 'Skinner', gender: 'M', dateOfBirth: '1950-01-30', email: 'skinner@isotopemail.com'},
-    {id: 13, firstName: 'Hank', lastName: 'Scorpio', gender: 'M', dateOfBirth: '1956-11-30', email: 'scorpio@isotopemail.com'}
+    {id: 13, firstName: 'Hank', lastName: 'Scorpio', gender: 'M', dateOfBirth: '1956-11-30', email: 'scorpio@isotopemail.com'},
+    {id: 14, firstName: 'Hank2', lastName: 'Scorpio', gender: 'M', dateOfBirth: '1956-11-30', email: 'scorpio@isotopemail.com'}
 ];
 
 module.exports = clientArray;
