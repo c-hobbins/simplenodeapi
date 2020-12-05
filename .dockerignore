@@ -1,0 +1,5 @@
+#Ignore the node_modules and source control files.
+
+*/3scale*
+*/node_modules*
+*.git*
