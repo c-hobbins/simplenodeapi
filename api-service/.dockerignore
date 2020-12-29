@@ -1,0 +1,6 @@
+#Ignore files and directories that don't need to be copied into the image
+
+*/3scale*
+*/node_modules*
+*/deployment-scripts*
+*.git*
