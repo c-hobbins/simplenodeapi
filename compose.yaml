@@ -1,0 +1,82 @@
+#https://github.com/compose-spec/compose-spec/blob/master/spec.md
+
+services:
+  api-gw:
+    image: registry.redhat.io/3scale-amp2/apicast-gateway-rhel8:latest
+    container_name: apicast
+    hostname: apigw
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    environment:
+      - THREESCALE_PORTAL_ENDPOINT=https://cbef3369e38437b8afa954066f2c39e9@dummy-dummy-admin.apps.openshift.incubation.api.canada.ca
+      - APICAST_LOG_LEVEL=debug
+      - APICAST_HTTPS_PORT=8443
+      - APICAST_HTTPS_CERTIFICATE=/opt/app-root/src/conf/certs/client.cert
+      - APICAST_HTTPS_CERTIFICATE_KEY=/opt/app-root/src/conf/certs/client.key
+      - APICAST_PROXY_HTTPS_CERTIFICATE_KEY=/opt/app-root/src/conf/certs/server.key
+      - APICAST_PROXY_HTTPS_CERTIFICATE=/opt/app-root/src/conf/certs/server.cert
+      - APICAST_RESPONSE_CODES=true
+      - APICAST_MANAGEMENT_API=debug   
+    secrets:
+      - source: tls-server-cert
+        target: server.cert
+        mode: 0440
+      - source: tls-server-key
+        target: server.key
+        mode: 0440
+      - source: mtls-client-cert
+        target: client.cert
+        mode: 0440
+      - source: mtls-client-key
+        target: client.key
+        mode: 0440 
+    networks:
+      local-network:
+        ipv4_address: 10.10.10.99
+        priority: 1
+    depends_on: 
+      api-service:
+        condition: service_healthy  #needs a healthcheck implemented!
+
+  api-service:
+    build: ./api-service/.
+    hostname: apiservice
+    ports:
+      - "9080:8080"
+      - "9443:8443"
+    networks:
+      local-network:
+        ipv4_address: 10.10.10.66
+        priority: 2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "https://host:port/pulse"]
+      interval: 1m00s
+      timeout: 6s
+      retries: 3
+      start_period: 20s
+
+secrets:
+  tls-server-cert:
+    external: true
+    file: ./certs/server.cert
+  tls-server-key:
+    external: true
+    file: ./certs/server.key
+  mtls-client-cert:
+    external: true
+    file: ./certs/client.cert
+  mtls-client-key:
+    external: true
+    file: ./certs/client.key
+
+networks:
+  local-network:
+    ipam:
+      driver: default
+      config:
+        - subnet: "10.10.10.0/24"
+  extra_hosts:
+    - "apiservice:10.10.10.66"
+    - "apigw:10.10.10.99"
+
