@@ -1,7 +1,6 @@
 api-service/node_modules/
 api-service/certs/
 api-service/deployment-scripts/
-api-service/
 api-service/.env
 api-gw/certs/
 debug-req*
