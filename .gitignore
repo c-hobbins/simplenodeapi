@@ -4,3 +4,4 @@ api-service/deployment-scripts/
 api-service/.env
 api-gw/certs/
 debug-req*
+*.bak
