@@ -4,6 +4,8 @@ const http = require('http');
 
 const app = require("./server");
 
+require('dotenv').config({ debug: true });
+
 //Set the host:port for the runtime separate from server.js so as not to conflict with the execution of test.js 
 const HTTP_PORT = process.env.HTTP_PORT; //8080
 const HTTPS_PORT = process.env.HTTPS_PORT; //8443
