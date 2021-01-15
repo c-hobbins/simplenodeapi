@@ -20,9 +20,7 @@ describe("Test Script 2...", function() {
             const res = await request.get('/v1/clients');
             expect(res.status).to.equal(200);
             expect(res.body.length).to.equal(dummyData.length);
-            //console.log ("Returned " + res.body.length + " clients.");
         }catch(err){
-            //console.log ("Caught handled error:" + err);
             throw(err);
         }
     });
@@ -32,9 +30,7 @@ describe("Test Script 2...", function() {
             const res = await request.get('/v1/clients/6');
             expect(res.status).to.equal(200);
             expect(res.body.firstName).to.equal("Moe");
-            //console.log ("Returned '" + res.body.fname + "'!");
         }catch(err){
-            //console.log ("Caught handled error:" + err);
             throw(err);
         }
     });
@@ -47,9 +43,7 @@ describe("Test Script 2...", function() {
             
             expect(res.status).to.equal(201);
             clientId = res.body.id;
-            //console.log ("Returned new client {Id}='" + res.body.id + "'.");
         }catch(err){
-            //console.log ("Caught handled error:" + err);
             throw(err);
         }
     });
@@ -60,10 +54,7 @@ describe("Test Script 2...", function() {
             
             expect(res.status).to.equal(204);
             clientId = res.body.id;
-            //expect(res.body.fname).to.equal("Moe");
-            //console.log ("Returned new client {Id}='" + res.body.id + "'.");
         }catch(err){
-            //console.log ("Caught handled error:" + err);
             throw(err);
         }
     });
