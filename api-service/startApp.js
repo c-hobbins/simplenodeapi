@@ -4,16 +4,16 @@ const http = require('http');
 
 const app = require("./server");
 
-require('dotenv').config({ debug: true });
+//require('dotenv').config({ debug: true });
 
 //Set the host:port for the runtime separate from server.js so as not to conflict with the execution of test.js 
-const HTTP_PORT = process.env.HTTP_PORT; //8080
-const HTTPS_PORT = process.env.HTTPS_PORT; //8443
+const HTTP_PORT = process.env.HTTP_PORT || 8080; //8080
+const HTTPS_PORT = process.env.HTTPS_PORT || 8443; //8443
 const HOST = '0.0.0.0';
 
-const boolRequireClientCert = process.env.REQUIRE_CLIENT_CERT;
+const boolRequireClientCert = process.env.REQUIRE_CLIENT_CERT || true;
 
-console.log(process.env.REQUIRE_CLIENT_CERT);
+console.log(boolRequireClientCert);
 
 const options = {
   //The ca.crt is only needed if client certificate is requested && the provided client cert is self signed.
