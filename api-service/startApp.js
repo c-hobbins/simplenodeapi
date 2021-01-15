@@ -17,9 +17,10 @@ console.log(boolRequireClientCert);
 
 const options = {
   //The ca.crt is only needed if client certificate is requested && the provided client cert is self signed.
-  ca: fs.readFileSync('./certs/ca.crt'),
-  cert: fs.readFileSync('./certs/server.cert'),
-  key: fs.readFileSync('./certs/server.key'),
+  
+  //ca: fs.readFileSync('./certs/ca.crt'),
+  cert: fs.readFileSync('./certs/tls.crt'),
+  key: fs.readFileSync('./certs/tls.key'),
   requestCert: boolRequireClientCert?true:false,
   rejectUnauthorized: boolRequireClientCert?true:false
 };
