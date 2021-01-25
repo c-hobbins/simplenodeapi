@@ -1,5 +1,5 @@
 #Ignore files and directories that don't need to be copied into the image
-
+*/api-gw*
 */3scale*
 */node_modules*
 */deployment-scripts*

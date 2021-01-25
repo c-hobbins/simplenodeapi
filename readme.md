@@ -12,6 +12,23 @@ $ git clone https://github.com/c-hobbins/simplenodeapi.git
 $ npm start
 ```
 
+:warning:
+To run locally, you need to create an **.env** file containing the following environment variables:
+
+DEBUG=true
+HTTP_PORT=8080
+HTTPS_PORT=8443
+REQUIRE_CLIENT_CERT=true
+CA_CERT=./certs/ca.crt
+SERVER_TLS_CERT=./certs/tls.crt
+SERVER_TLS_KEY=./certs/tls.key
+
+Then run;
+
+```bash session
+$ npm run start-dev
+```
+
 Navigate to `http://localhost:8080/v1/clients/docs` :+1:
 
 ## Run as Docker container
