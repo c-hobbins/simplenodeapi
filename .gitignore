@@ -1,8 +1,7 @@
-api-service/node_modules/
-api-service/certs/
-api-service/deployment-scripts/
-api-service/.env
+node_modules/
+certs/
+deployment-scripts/
+.env
 api-gw/certs/
 debug-req*
 *.bak
-compose.yaml
