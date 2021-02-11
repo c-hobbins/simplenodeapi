@@ -6,9 +6,18 @@ LABEL description "Just a simple Node application using express to host resource
 LABEL build_date="2020-12-03"
 LABEL version="1.1"
 
+ENV DEBUG=true
+ENV HTTP_PORT=8080
+ENV HTTPS_PORT=8443
+ENV REQUIRE_TLS=true
+ENV REQUIRE_CLIENT_CERT=true
+ENV CA_CERT=./certs/ca.crt
+ENV SERVER_TLS_CERT=./certs/tls.crt
+ENV SERVER_TLS_KEY=./certs/tls.key
+
 WORKDIR /usr/src/app
-COPY ./certs/server.cert ./certs/
-COPY ./certs/server.key ./certs/
+COPY ./certs/tls.crt ./certs/
+COPY ./certs/tls.key ./certs/
 COPY ./certs/ca.crt ./certs/
 
 COPY package*.json ./

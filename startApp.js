@@ -64,7 +64,7 @@ if(REQUIRE_TLS === 'true'){
   }
 }
 
-//Don't want to start both...leave as mutuially exclusive for simplicity
+//Don't want to start both...leave as mutually exclusive for simplicity
 let isHttps = false;
 
 if(REQUIRE_TLS === 'true'){
