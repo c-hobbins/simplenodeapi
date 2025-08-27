@@ -42,7 +42,7 @@ $ sudo docker run -it -p 8080:8080 --rm --name simple-node-api simple-node-api-i
 *(-d to run detached)*
 ```
 
-Navigate to `http://localhost:8080/v1/clients/docs` :+1:
+Navigate to `http://localhost:8080/v1/clients` :+1:
 
 ## Running unit tests
 
