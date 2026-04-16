@@ -29,7 +29,7 @@ Then run;
 $ npm run start-dev
 ```
 
-Navigate to `http://localhost:8080/v1/clients/docs` :+1:
+Navigate to `http://localhost:8080/v1/clients` :+1:
 
 ## Run as Docker container
 
